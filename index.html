@@ -1,0 +1,181 @@
+---
+layout: default
+---
+
+<!-- Intro Section -->
+<section id="intro">
+  <div class="flex-row-between">
+    <h1>Nahid Hasan</h1>
+    <button title="Change theme" id="theme-toggle" onclick="modeSwitcher()">
+      <div></div>
+    </button>
+  </div>
+  <div class="bio">
+    <img
+      width="100px"
+      style="border-radius: 50%"
+      src="assets/img/profile.jpeg"
+    />
+    <p>
+      I'm an
+      <b>Aspiring Software Engineer, Competitve Programmer, AI Enthusiast</b>
+      and more. I'm currently an undergraduate student of <a target="_blank" href="https://www.ruet.ac.bd/">RUET</a>. You can email me at <b>nahidhasan282@gmail.com</b></a>
+    </p>
+
+    <a
+      href="/resume/Nahid-Résumé-{{site.resume-version}}.pdf"
+      class="resume-link"
+      ><i class="fas fa-file-pdf"></i> My Resume</a
+    >
+
+    <div class="social">
+      {% for social in site.data.socials %}
+      <a target="_blank" title="{{social.title}}" href="{{ social.url }}" class=""
+        ><i class="{{ social.icon }}"></i
+      ></a>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div>
+    <h2>Quick Links</h2>
+    <ul class="quick-links">
+      {% for quick in site.data.quick_links %}
+      <li>
+        <a href="{{quick.url}}"
+          ><i class="{{quick.icon}}"></i> {{quick.name}}</a
+        >
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+  <h2 class="bar"><span>$ Skills</span></h2>
+  <ul class="skill">
+    {% for skill in site.data.skills %}
+    <li><i class="{{skill.icon}}"></i> {{ skill.name }}</li>
+    {% endfor %}
+
+    <li title="Yes, I'm always thriving">
+      <i class="far fa-question-circle"></i> Thriving
+    </li>
+  </ul>
+
+  <ul class="experienced_skills">
+    {% for skill in site.data.experienced_skills %}
+    <li><i class="{{skill.icon}}"></i> {{ skill.title }}</li>
+    {% endfor %}
+  </ul>
+</section>
+
+<!-- Experience Section -->
+<section id="experience">
+  <h2 class="bar"><span>$ Experience</span></h2>
+  {% for experience in site.data.experiences %}
+  <!-- <img class="experience-logo" src="{{experience.icon_path}}" width="100px" /> -->
+  <div class="each-experience">
+    <h1>
+      <a target="_blank" href="{{experience.url}}"> {{experience.company}}</a>
+    </h1>
+    <h4>
+      {{experience.position}} <br />
+      {{experience.period}}
+    </h4>
+    <p><small>{{experience.description}}</small></p>
+
+    <ul>
+      {% for exp in experience.key_points %}
+      <li>{{ exp.text }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
+</section>
+
+<!-- Competitive Programming Career -->
+<section id="cpcareer">
+  <h2 title="Competitve Programming Career" class="bar">
+    <span>$ Competitve Programming Career</span>
+  </h2>
+
+  {% include cp_appearances.html %}
+
+  <p style="text-align: right">
+    <a
+      href="/cp-career"
+      title="ICPC, Onsite Contests, Problem Setting, Awards and more..."
+      ><i class="fab fa-internet-explorer"></i> Explore More</a
+    >
+  </p>
+</section>
+
+<!-- Interests Section -->
+<section id="interests">
+  <h2 class="bar"><span>$ Interests</span></h2>
+  <div class="interests">
+    {% for interest in site.data.interests %}
+    <h2><a target="_blank" href="{{interest.url}}">{{interest.name}}</a></h2>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- Blog Section -->
+<section class="posts" id="blog">
+  <h2 class="bar"><span>$ Blog</span></h2>
+
+  <div class="search-article">
+    <label for="search-input" aria-hidden="true">
+      <!-- Magnifier -->
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="rgba(128,128,128,0.8)"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="feather feather-search"
+      >
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </label>
+
+    <input
+      type="search"
+      id="search-input"
+      placeholder="Find some articles here"
+      aria-label="Search"
+    />
+    <ul id="search-results"></ul>
+  </div>
+
+  {% unless site.posts.size>0 %}
+  <p>I'll write some posts in the near future. Check back later</p>
+  {% endunless %} {% for post in site.posts %}
+  <div class="each-post">
+    <i class="fas post-index">{{ forloop.index }}</i>
+
+    <div class="post-meta">
+      <a class="title" href="{{ site.baseurl }}{{ post.url }}"
+        >{{ post.title }}</a
+      >
+      <time datetime="{{ post.date | date_to_xmlschema }}"
+        >{{ post.date | date: "%b %d, %Y" }}</time
+      >
+      <ul class="tags">
+        {% for tag in post.tags %}
+        <a href="{{ site.baseurl }}/tag/{{tag}}">{{tag}}</a>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <hr />
+  {% endfor %}
+</section>

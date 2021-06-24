@@ -1,0 +1,46 @@
+appearances:
+  - name: Codeforces
+    username: joynahiid
+    url: http
+    solved: 888
+    best: expert
+
+  - name: Toph
+    username: joynahiid
+    url: https://toph.co/u/joynahiid
+    solved: 172
+    best: 1782
+
+  - name: Atcoder
+    username: joynahiid
+    url: https://atcoder.jp/users/joynahiid
+    solved: N/A
+    best: N/A
+
+  - name: Codechef
+    username: joynahiid
+    url: sdds
+    solved: 34
+    best: 3☆
+
+  - name: LightOJ
+    username: nahidhasan2838
+    url: https://lightoj.com/user/nahidhasan2838
+    solved: 78
+    best: N/A
+
+  - name: UVA
+    username: joynahiid
+    url: https://uhunt.onlinejudge.org/id/967785
+    solved: 30
+    best: N/A
+
+participations:
+  - name: ICPC
+    team: RUET_nothing_really_matters
+    rank: 63rd
+
+set_problems:
+- title: Yet Another Travelling Problem
+  category: Graph
+  contest: Intra RUET Junior Contest (Round 1)

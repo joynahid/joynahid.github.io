@@ -1,0 +1,23 @@
+- company: IntelsenseAI
+  url: https://intelsense.ai
+  position: "Software Engineer Intern"
+  period: April 2021 - Present
+  description: 
+  icon_path: /
+  key_points:
+    - text: "Worked in Core Speech Research & Development Team"
+    - text: "Developed, trained and deployed AI Chatbots"
+    - text: "Implemented a TTS, STT service and deployed to AWS"
+    - text: "Typed Python, Javascript, Bash etcetera"
+
+
+- company: Knotbyte
+  url: https://knotbyte.com
+  position: "Software Engineer (Self Employed)"
+  period: November 2020 - Present
+  description: 
+  icon_path: /
+  key_points:
+    - text: "Built productivity tool with OpenCV"
+    - text: "Built an enterprise solution for a startup using React, NodeJS, Express, Amazon Web Services"
+    - text: "Utilized Test Driven Development, Continuous Integration"

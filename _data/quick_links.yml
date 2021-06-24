@@ -1,0 +1,19 @@
+- name: Blog
+  icon: "fas fa-arrow-right"
+  url: "#blog"
+
+- name: Skills
+  icon: "fas fa-arrow-right"
+  url: "#skills"
+
+- name: Work Experience
+  icon: "fas fa-arrow-right"
+  url: "#experience"
+
+- name: Interests
+  icon: "fas fa-arrow-right"
+  url: "#interests"
+
+- name: "Competitive Programming Career"
+  icon: "fas fa-arrow-right"
+  url: "/cp-career"

@@ -1,0 +1,83 @@
+- name: "C/C++"
+  icon: devicon-cplusplus-plain
+
+- name: "Python"
+  icon: devicon-python-plain
+
+- name: "Nodejs"
+  icon: devicon-nodejs-plain
+
+- name: "PHP"
+  icon: devicon-php-plain
+
+- name: "Kotlin"
+  icon: devicon-kotlin-plain
+
+- name: "Java"
+  icon: devicon-java-plain
+
+- name: "HTML"
+  icon: devicon-html5-plain
+
+- name: "React"
+  icon: devicon-react-plain
+
+- name: "CSS"
+  icon: devicon-css3-plain
+
+- name: "Less"
+  icon: devicon-less-plain-wordmark
+
+- name: "Sass"
+  icon: devicon-sass-original
+
+- name: "MySQL"
+  icon: devicon-mysql-plain
+
+- name: "MongoDB"
+  icon: devicon-mongodb-plain
+
+- name: "Django"
+  icon: devicon-django-plain
+
+- name: "Flask"
+  icon: devicon-flask-plain
+
+- name: "Firebase"
+  icon: devicon-firebase-plain
+
+- name: "ExpressJS"
+  icon: devicon-express-original
+
+- name: "NextJS"
+  icon: devicon-nextjs-original
+
+- name: "Tensorflow"
+  icon: devicon-tensorflow-original
+
+- name: "CircleCI"
+  icon: devicon-circleci-plain
+
+- name: "NGINX"
+  icon: devicon-nginx-plain
+
+- name: "Jupyter"
+  icon: devicon-jupyter-plain
+
+- name: "Git"
+  icon: devicon-git-plain
+
+- name: "Github"
+  icon: devicon-github-plain
+
+- name: "Docker"
+  icon: devicon-docker-plain
+
+- name: "Heroku"
+  icon: devicon-heroku-plain
+
+- name: "AWS"
+  icon: devicon-amazonwebservices-original
+
+- name: "Ubuntu"
+  icon: devicon-ubuntu-plain

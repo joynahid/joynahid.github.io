@@ -1,0 +1,13 @@
+#Provide i class based fonticon
+
+- name: LinkedIn
+  url: https://www.linkedin.com/in/joynahid/
+  icon: fab fa-linkedin
+
+- name: Github
+  url: https://github.com/joynahid
+  icon: fab fa-github
+
+- name: Email
+  url: mailto:nahidhasan282@gmail.com
+  icon: fas fa-at

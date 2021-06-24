@@ -1,0 +1,15 @@
+<table class="cp-career" border="1">
+  <tr>
+    <th>Judge</th>
+    <th>Username</th>
+    <th>Solved</th>
+  </tr>
+
+  {% for judge in site.data.cp_career.appearances %}
+  <tr>
+    <td>{{judge.name}}</td>
+    <td><a href="{{judge.url}}">{{judge.username}}</a></td>
+    <td>{{judge.solved}}</td>
+  </tr>
+  {% endfor %}
+</table>
