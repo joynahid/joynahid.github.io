@@ -1,7 +1,7 @@
 appearances:
   - name: Codeforces
     username: joynahiid
-    url: http
+    url: https://codeforces.com/profile/joynahiid
     solved: 888
     best: expert
 
@@ -19,7 +19,7 @@ appearances:
 
   - name: Codechef
     username: joynahiid
-    url: sdds
+    url: https://www.codechef.com/users/joynahiid
     solved: 34
     best: 3☆
 
@@ -34,11 +34,6 @@ appearances:
     url: https://uhunt.onlinejudge.org/id/967785
     solved: 30
     best: N/A
-
-participations:
-  - name: ICPC
-    team: RUET_nothing_really_matters
-    rank: 63rd
 
 set_problems:
 - title: Yet Another Travelling Problem
