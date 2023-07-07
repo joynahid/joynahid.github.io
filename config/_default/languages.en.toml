@@ -10,12 +10,12 @@ rtl = false
 dateFormat = "2 January 2006"
 # logo = "img/nahid-anime.png"
 # secondaryLogo = "img/secondary-logo.png"
-description = "My awesome website"
+description = "My awesome portfolio website"
 # copyright = "Copy, _right?_ :thinking_face:"
 
 [author]
 name = "Nahid Hasan"
-image = "img/nahid-anime.png"
+image = "img/nahid-2.JPG"
 headline = '''
   Doing Python, Typescript, C# and million other things 🙂🧑‍💻
   '''
@@ -60,7 +60,7 @@ links = [
   #     { twitch = "https://twitch.tv/username" },
   #     { twitter = "https://twitter.com/username" },
   #     { whatsapp = "https://wa.me/phone-number" },
-  #     { youtube = "https://youtube.com/username" },
+      { youtube = "https://youtube.com/nahidhdq" },
   #     { ko-fi = "https://ko-fi.com/username" },
   { threads = "https://threads.net/@joynahiid" },
 ]
