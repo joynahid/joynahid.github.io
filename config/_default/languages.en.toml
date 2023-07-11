@@ -1,10 +1,10 @@
 languageCode = "en"
 languageName = "English"
-weight = 1
+weight = 0
 title = "Nahid"
 
 [params]
-displayName = "EN"
+displayName = "English"
 isoCode = "en"
 rtl = false
 dateFormat = "2 January 2006"
@@ -17,7 +17,7 @@ description = "My awesome portfolio website"
 name = "Nahid Hasan"
 image = "img/nahid-2.JPG"
 headline = '''
-  Doing Python, Typescript, C# and million other things 🙂🧑‍💻
+  Doing Python, Typescript, C#, Linux and million other things 🙂🧑‍💻
   '''
 links = [
   { email = "mailto:info@nahidhq.com" },
