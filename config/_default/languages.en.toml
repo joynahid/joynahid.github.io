@@ -60,7 +60,7 @@ links = [
   #     { twitch = "https://twitch.tv/username" },
   #     { twitter = "https://twitter.com/username" },
   #     { whatsapp = "https://wa.me/phone-number" },
-      { youtube = "https://youtube.com/nahidhdq" },
+      # { youtube = "https://youtube.com/nahidhdq" },
   #     { ko-fi = "https://ko-fi.com/username" },
   { threads = "https://threads.net/@joynahiid" },
 ]

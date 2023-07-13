@@ -63,3 +63,6 @@ googleAnalytics = "G-YLZ985YY4M"
       name = 'fragmentrefs'
       type = 'fragments'
       weight = 10
+
+[markup.goldmark.renderer]
+  unsafe = true
