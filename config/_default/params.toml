@@ -48,11 +48,11 @@ smartTOCHideUnfocusedChildren = true
 [article]
   showDate = true
   showViews = false
-  showLikes = false
+  showLikes = true
   showDateUpdated = false
   showAuthor = true
-  showHero = false
-  # heroStyle = "basic" # valid options: basic, big, background, thumbAndBackground
+  showHero = true
+  heroStyle = "thumbAndBackground" # valid options: basic, big, background, thumbAndBackground
   layoutBackgroundBlur = true # only used when heroStyle equals background or thumbAndBackground
   layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
   showBreadcrumbs = false
@@ -68,7 +68,7 @@ smartTOCHideUnfocusedChildren = true
   showTableOfContents = true
   showRelatedContent = false
   # relatedContentLimit = 3 
-  showTaxonomies = false
+  showTaxonomies = true
   showAuthorsBadges = false
   showWordCount = true
   showSummary = true
@@ -81,7 +81,7 @@ smartTOCHideUnfocusedChildren = true
   layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
   showBreadcrumbs = false
   showSummary = false
-  showViews = false
+  showViews = true
   showLikes = false
   showTableOfContents = false
   showCards = false
@@ -115,13 +115,13 @@ smartTOCHideUnfocusedChildren = true
   cardViewScreenWidth = false
 
 [firebase]
-  # apiKey = "XXXXXX"
-  # authDomain = "XXXXXX"
-  # projectId = "XXXXXX"
-  # storageBucket = "XXXXXX"
-  # messagingSenderId = "XXXXXX"
-  # appId = "XXXXXX"
-  # measurementId = "XXXXXX"
+  apiKey = "AIzaSyApJ4l4r8LkNzFS-V35atMPItBpljGGL6s"
+  authDomain = "nahidhq-portfolio.firebaseapp.com"
+  projectId = "nahidhq-portfolio"
+  storageBucket = "nahidhq-portfolio.appspot.com"
+  messagingSenderId = "62442121278"
+  appId = "1:62442121278:web:aee0dd02a97181ae5d096f"
+  measurementId = "G-RDSGJ56K2R"
 
 [fathomAnalytics]
   # site = "ABC12345"

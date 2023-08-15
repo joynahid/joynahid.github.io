@@ -2,7 +2,7 @@
 categories = ['Development', 'Tooling', 'Testing']
 date = '2023-08-15'
 description = 'Sendmail is a mail transfer agent (MTA) that serves as a key component in email communication systems'
-tags = ['linux', 'tooling', 'sendmail', 'smtp', 'software-developing', 'testing']
+tags = ['linux', 'sendmail', 'smtp', 'software-developing']
 title = "Test Sending Emails using Sendmail's SMTP Server"
 draft = false
 +++

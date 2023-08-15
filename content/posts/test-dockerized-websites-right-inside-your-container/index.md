@@ -2,7 +2,7 @@
 categories = ['Development', 'Tooling', 'Testing']
 date = '2023-08-15'
 description = 'selenium/standalone-chrome is such a tool that you can use to automate/debug/run your frontend/backend/whatever integration and e2e tests.'
-tags = ['docker', 'tooling', 'selenium', 'chrome', 'standalone-chrome', 'dockerhub', 'testing']
+tags = ['docker', 'selenium', 'chrome', 'standalone-chrome']
 title = 'Test Dockerized Websites Right Inside Your Docker Container'
 draft = false
 +++
