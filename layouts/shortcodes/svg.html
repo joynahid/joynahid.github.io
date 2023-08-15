@@ -1,0 +1,6 @@
+{{ $svgFile :=  (path.Join (path.Dir .Page.File.Path) (.Get 0)) }}
+
+<div style="width:100px">
+{{- readFile $svgFile | safeHTML -}}
+</div>
+

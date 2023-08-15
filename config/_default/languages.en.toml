@@ -58,9 +58,9 @@ links = [
   #     { tiktok = "https://tiktok.com/@username" },
   #     { tumblr = "https://username.tumblr.com" },
   #     { twitch = "https://twitch.tv/username" },
-  #     { twitter = "https://twitter.com/username" },
+      { twitter = "https://twitter.com/joynahiid" },
   #     { whatsapp = "https://wa.me/phone-number" },
       # { youtube = "https://youtube.com/nahidhdq" },
   #     { ko-fi = "https://ko-fi.com/username" },
-  { threads = "https://threads.net/@joynahiid" },
+  # { threads = "https://threads.net/@joynahiid" },
 ]
