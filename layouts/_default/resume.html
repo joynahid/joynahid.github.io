@@ -7,7 +7,6 @@
   {{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
   {{ $heroStyle := .Params.heroStyle }}
   {{ if not $heroStyle }}{{ $heroStyle = .Site.Params.article.heroStyle }}{{ end }}
-  {{ $heroStyle := print "partials/hero/" $heroStyle ".html" }}
   {{ if templates.Exists $heroStyle }}
   {{ partial $heroStyle . }}
   {{ else }}

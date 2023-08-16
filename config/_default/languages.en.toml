@@ -10,7 +10,7 @@ rtl = false
 dateFormat = "2 January 2006"
 # logo = "img/nahid-anime.png"
 # secondaryLogo = "img/secondary-logo.png"
-description = "My awesome portfolio website"
+description = "Nahid is a Remote Software Engineer based in Bangladesh who is passionate about coding. He is currently exploring various areas including Python, Go, design patterns, Aritificial Intelligence, intriguing projects, open-source initiatives, and startup endeavors while actively developing software remotely."
 # copyright = "Copy, _right?_ :thinking_face:"
 
 [author]
