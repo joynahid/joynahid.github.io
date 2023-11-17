@@ -17,7 +17,7 @@ description = "Nahid is a Remote Software Engineer based in Bangladesh who is pa
 name = "Nahid Hasan"
 image = "img/nahid-2.JPG"
 headline = '''
-  Doing Python, Typescript, C#, Linux and million other things 🙂🧑‍💻
+  Lifelong learner, skilled programmer, solopreneur seeking continuous growth through curiosity.
   '''
 links = [
   { email = "mailto:info@nahidhq.com" },

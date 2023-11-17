@@ -11,3 +11,10 @@ hugo.linux
 
 # Temporary lock file while building
 /.hugo_build.lock
+.frontmatter
+.vscode
+node_modules
+.env
+build.sh
+frontmatter.json
+ndata.txt

@@ -1,68 +1,54 @@
 +++
-categories = ['Development', 'Tooling', 'Testing']
+categories = ['Development']
 date = '2023-08-15'
 description = 'Sendmail is a mail transfer agent (MTA) that serves as a key component in email communication systems'
-tags = ['linux', 'sendmail', 'smtp', 'software-developing']
-title = "Test Sending Emails using Sendmail's SMTP Server"
+tags = ['Sendmail']
+title = "Testing Email Sending Locally with Sendmail"
 draft = false
 +++
 
-## The Case
+Hey folks! Today I want to share how I set up sendmail to test email sending in my programs before deploying. 
 
-I was working on some email sending programs and I needed to test them locally. I found out that there are some tools that can help me with that. One of them is sendmail, which is a popular CLI tool to send emails to Linux users from your command line. You can also use it to send emails globally, but you need to configure it more and do some research. If you are interested, you can look it up.
+Sendmail is this old-school Linux tool that lets you send emails right from the command line. Kinda retro, but super handy!
 
+Here's how I got it going:
 
-## Real Stuffs
+First I installed sendmail and mailutils on my Debian box:
 
-Use the following commands to install sendmail in a debian/ubuntu environment.
-1. Install these tools
-    - `sendmail` for sending mails from command line
-    - `mailutils` for viewing/sending mails
-
-```bash
-apt install sendmail mailutils -y
+```
+apt install sendmail mailutils
 ```
 
-2. Configure `sendmail`'s SMTP Server
+This gives me the sendmail program plus some tools for checking emails.
 
-```bash
+Next I ran: 
+
+```
 sendmailconfig
 ```
 
-3. Send email to the linux user `debian` from root.
+To set it up with my local SMTP server. Just used the defaults here to get it working locally.
 
-```bash
-echo "Subject: Hello world" > /tmp/test.txt
-sendmail -v debian@localhost < /tmp/test.txt
-```
-
-4. Check the mailbox
-```bash
-# switch to debian user
-$ sudo su debian
-# Check mailbox
-$ mail
-
-"/var/mail/debian": 5 messages 1 new 2 unread
- U   1 Mail Delivery Subs Sun Aug 13 06:00  72/3052  Returned mail: see tr
- U   2 Mail Delivery Subs Sun Aug 13 10:08  63/2412  Warning: could not se
-     3 root               Sun Aug 13 17:19  27/1121
-     4 Debian             Sun Aug 13 17:53  14/603
->N   5 Debian             Tue Aug 15 14:35  12/620   Hello world
-? 5
-Return-Path: <debian@vps-ncbdhsd.vps.ovh.us>
-Received: from vps-ncbdhsd.vps.ovh.us (localhost [127.0.0.1])
-        by vps-ncbdhsd.vps.ovh.us (8.17.1.9/8.17.1.9/Debian-2) with ESMTP id 37FEZu5U247448
-        for <debian@vps-ncbdhsd.vps.ovh.us>; Tue, 15 Aug 2023 14:35:56 GMT
-Received: (from root@localhost)
-        by vps-ncbdhsd.vps.ovh.us (8.17.1.9/8.17.1.9/Submit) id 37FEZubT247447
-        for debian@localhost; Tue, 15 Aug 2023 14:35:56 GMT
-Date: Tue, 15 Aug 2023 14:35:56 GMT
-From: Debian <debian@vps-ncbdhsd.vps.ovh.us>
-Message-Id: <202308151435.37FEZubT247447@vps-ncbdhsd.vps.ovh.us>
-Subject: Hello world
-
+Then for the fun part - sending a test email:
 
 ```
+echo "Yo this is a test" > email.txt
+sendmail -v myfriend@localhost < email.txt
+```
 
-That's it! You're ready to test your python, nodejs, php, rust or any other apps.
+This sends email.txt to myfriend's local mailbox.
+
+I can check that it worked by logging in as myfriend:
+
+```
+su myfriend 
+mail
+```
+
+And there's my test email!
+
+Pretty easy right? Now I can test all my email features locally before pushing to production. No more worrying about spamming real inboxes while developing.
+
+Sendmail may look old and crusty, but it's got some good bones! Definitely recommend giving it a spin if you need to test email sending in your projects.
+
+Let me know if you have any other tricks for local email testing!

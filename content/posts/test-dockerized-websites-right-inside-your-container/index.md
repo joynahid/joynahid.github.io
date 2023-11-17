@@ -1,67 +1,66 @@
 +++
-categories = ['Development', 'Tooling', 'Testing']
+categories = ['Testing']
 date = '2023-08-15'
 description = 'selenium/standalone-chrome is such a tool that you can use to automate/debug/run your frontend/backend/whatever integration and e2e tests.'
-tags = ['docker', 'selenium', 'chrome', 'standalone-chrome']
-title = 'Test Dockerized Websites Right Inside Your Docker Container'
+title = 'Local Website Testing with Docker and Selenium'
 draft = false
 +++
 
-## The Case
 
-I recently developed a website that communicated with six different APIs. To manage this, I configured a docker-compose and launched them within a shared bridged network. For the purpose of manual testing, which involved interacting with the website through various actions, I had a couple of options:
+Recently I was building a website that connected to several different APIs. I wanted to test it thoroughly before launch. 
 
-1. Expose and map each API to distinct ports, and then configure the website to use the corresponding API URLs on the host machine.
-2. Isolate all components within dockerized environments and utilize the shared network for comprehensive testing.
+I decided to use Docker to spin everything up locally. That way I could test the whole system end-to-end.
 
-I preferred the second approach because it allowed me to isolate everything, allowing me to conduct thorough testing in a controlled environment. After exploring various methods, I came across a solution: the utilization of the "selenium/standalone-chrome" docker image.
+I created a docker-compose file to launch the website and APIs together in a shared network:
 
-This particular Linux-based image comes equipped with both the chrome-webdriver and a VNC server. As a result, I can access the environment through a VNC or noVNC client directly within a web browser.
+```yaml
+# docker-compose.yml
 
-
-## The Code
-
-Here's a simple docker-compose.yml that you can see and explore in a minute!
-
-
-```yaml {path="docker-compose.yml"}
 version: "3.8"
 
 services:
   web:
-    image: nginxdemos/hello:latest
-    networks:
-      - mynet
+    image: myapp
+  
+  api1:
+    image: myapi1
 
+  api2:
+    image: myapi2
+
+# etc...
+```
+
+This allowed me to test them all together, rather than isolating each API on a different port.
+
+But I still needed a way to simulate browser testing. Enter Selenium!
+
+Selenium is a tool for automating browsers. I used the `selenium/standalone-chrome` docker image. It comes prepacked with:
+
+- Chrome WebDriver
+- VNC server
+
+So I could connect directly to the container's Chrome instance via VNC. Perfect for running simulated user tests!
+
+I updated my docker-compose file:
+
+```yaml 
   browser:
-    image: selenium/standalone-chrome:latest
+    image: selenium/standalone-chrome
     ports:
       - 7900:7900
-    shm_size: 2g # Incrase shared memory from 64M (default) to 2g
-    networks:
-      - mynet
-
-networks:
-  mynet:
-    driver: bridge
 ```
 
-Then, spawn the docker containers:
-```bash
-$ docker-compose up
-```
-
-Then, go to:
-[http://localhost:7900/?autoconnect=1&resize=scale&password=secret](http://localhost:7900/?autoconnect=1&resize=scale&password=secret)
-
-The password is `secret` by default.
-
-See it in action, connected via noVNC in host's Chrome.
-
-![Demo](ss-demo.png)
+After starting the containers, I could access the Selenium browser at [http://localhost:7900/?autoconnect=1&resize=scale&password=secret](http://localhost:7900/?autoconnect=1&resize=scale&password=secret)
 
 
-## More
+<img src="ss-demo.png" width="50%" />
 
-Another tool that I found doing so:
-The `selenium/standalone-chrome` is a part of Selenium Grid, which lets me run tests in parallel. Details here: [https://www.selenium.dev/documentation/grid/getting_started/](https://www.selenium.dev/documentation/grid/getting_started/)
+
+Pretty cool!
+
+This let me thoroughly test the web UI and APIs together, locally and in isolation. No need to fuss with ports or external dependencies.
+
+Docker and Selenium are amazing tools for fast and robust local testing. Give them a spin on your next web project!
+
+Let me know if you have any other tips for testing web UIs and APIs locally.
