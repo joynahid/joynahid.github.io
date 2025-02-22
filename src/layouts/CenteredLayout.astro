@@ -1,0 +1,39 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer";
+import Header from "../components/Header.astro";
+
+// Define the props interface
+interface Props {
+    title: string;
+    description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{title || "My Site"}</title>
+        <BaseHead title={title} description={description} />
+    </head>
+    <body>
+        <div class="min-h-screen flex flex-col">
+            <main class="container mx-auto px-4 py-8 min-h-screen">
+                <div class="flex justify-center min-h-screen">
+                    <div class="w-full max-w-2xl flex flex-col">
+                        <div class="my-2">
+                            <Header />
+                        </div>
+                        <slot />
+                        <div class="mt-auto">
+                            <Footer />
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>
