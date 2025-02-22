@@ -4,6 +4,7 @@ slug: a-closer-look-into-the-requests-library
 description: In this post, We'll take a closer look into the requests library and how it works.
 tags: ["python", "requests", "urllib", "socket"]
 pubDate: "2025-02-20"
+draft: true
 # heroImage: '/assets/a-closer-look-into-the-requests-library/hero.png'
 ---
 

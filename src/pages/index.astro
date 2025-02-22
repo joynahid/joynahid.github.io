@@ -5,8 +5,10 @@ import { getCollection } from "astro:content";
 // import HomeProfile from "../components/HomeProfile.astro";
 
 // Get all blog posts sorted by date
-const posts = (await getCollection("blog")).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+const posts = (await getCollection("blog", ({ data }) => {
+	return data.draft !== true
+})).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
 
