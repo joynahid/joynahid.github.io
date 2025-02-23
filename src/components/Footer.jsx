@@ -49,6 +49,8 @@ const Footer = () => {
             >
               EMAIL
             </a>
+
+
           </div>
         </div>
       </div>

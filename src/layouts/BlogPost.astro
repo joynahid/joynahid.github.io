@@ -12,11 +12,12 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
+import { HomeIcon } from "lucide-react";
 
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<"posts">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate } = Astro.props;
 
 const buildGithubUrl = () => {
 	return `${GITHUB_REPO_URL}/blob/main/src/content/${Astro.url.pathname.slice(0, Astro.url.pathname.lastIndexOf("/"))}.md`;
@@ -27,7 +28,7 @@ const buildGithubUrl = () => {
 	<Breadcrumb>
 		<BreadcrumbList>
 			<BreadcrumbItem>
-				<BreadcrumbLink href="/">Home</BreadcrumbLink>
+				<BreadcrumbLink href="/"><HomeIcon client:load className="w-4 h-4" /></BreadcrumbLink>
 			</BreadcrumbItem>
 			<BreadcrumbSeparator />
 			<BreadcrumbItem>

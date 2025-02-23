@@ -1,0 +1,43 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import BlogPost from "../../layouts/BlogPost.astro";
+import { render } from "astro:content";
+
+export async function getStaticPaths() {
+	const posts = await getCollection("posts");
+	return posts.map((post) => ({
+		params: { slug: post.id },
+		props: {
+			post,
+			relatedPosts: posts.filter((p) => p.id !== post.id && p.data.tags?.some((tag) => post.data.tags?.includes(tag))),
+		},
+	}));
+}
+
+type Props = {
+	post: CollectionEntry<"posts">;
+	relatedPosts: CollectionEntry<"posts">[];
+};
+
+const {post, relatedPosts} = Astro.props;
+const { Content } = await render(post);
+
+---
+
+<BlogPost {...post.data}>
+	<Content />
+	{relatedPosts.length > 0 && (
+	<div class="mt-8">
+		<h2 class="text-2xl font-bold mb-4">You might also like</h2>
+		<ul class="space-y-4">
+			{relatedPosts.map((relatedPost) => (
+				<li>
+					<a href={`/posts/${relatedPost.id}`} class="text-blue-500 hover:underline">
+						{relatedPost.data.title}
+					</a>
+					</li>
+				))}
+			</ul>
+		</div>
+	)}
+</BlogPost>

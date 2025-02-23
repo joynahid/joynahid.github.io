@@ -5,7 +5,7 @@ import { getCollection } from "astro:content";
 // import HomeProfile from "../components/HomeProfile.astro";
 
 // Get all blog posts sorted by date
-const posts = (await getCollection("blog", ({ data }) => {
+const posts = (await getCollection("posts", ({ data }) => {
 	return data.draft !== true
 })).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -29,7 +29,7 @@ const posts = (await getCollection("blog", ({ data }) => {
 							"rounded-md",
 							"transition-all"
 						]}
-						href={`/blog/${post.id}/`}
+						href={`/posts/${post.id}/`}
 					>
 						<span class="text-gray-400 text-xs text-base-100 tracking-tight">
 							{post.data.pubDate.toLocaleDateString("en-us", {
