@@ -136,7 +136,7 @@ Let's just go ahead and send this packet to icanhazip.com
 client_socket.sendall(http_packet.encode())
 ```
 
-As we sent the packet, we can expect some response from google, let's try to read some bytes and see if google put some bytes in the socket or not:
+As we sent the packet, we can expect some response from icanhazip.com server, let's try to read some bytes and see if icanhazip.com put some bytes in the socket or not:
 
 ```python
 response = client_socket.recv(1024)
