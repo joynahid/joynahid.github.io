@@ -16,7 +16,7 @@ const Footer = () => {
         <div>
           <div className="flex gap-5 items-center">
             <a
-              href="https://youtube.com/@nahidscript"
+              href="https://youtube.com/@nullsenburg"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-primary transition-colors hover:font-bold"
@@ -42,15 +42,13 @@ const Footer = () => {
             </a>
 
             <a
-              href="mailto:nahidhasan282@gmail.com"
+              href="mailto:nahidscript@proton.me"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-primary transition-colors hover:font-bold"
             >
               EMAIL
             </a>
-
-
           </div>
         </div>
       </div>

@@ -1,0 +1,161 @@
+---
+import CenteredLayout from "../layouts/CenteredLayout.astro";
+import { SITE_TITLE } from "../consts";
+import { Video, Shield, Dog, Camera, Github, ExternalLink, FileText } from "lucide-react";
+
+const projects = [
+	{
+		id: "dog-agility-software",
+		data: {
+			title: "A Comprehensive Dog Agility Software for Trial Secretaries, Judges, and Associations",
+			description: "Complete management system for dog agility trials with real-time scoring, participant management, and automated reporting features.",
+			status: "Active",
+			year: "2025",
+			icon: "dog",
+			github: "https://github.com/nahidscript/dog-agility-software",
+			demo: "https://agility-demo.nahidscript.com"
+		}
+	},
+	{
+		id: "video-captioning-tool",
+		data: {
+			title: "Automated Video Captioning Tool",
+			description: "AI-powered tool for automatic video transcription and subtitle generation with support for multiple languages and formats.",
+			status: "Ongoing",
+			year: "2025",
+			icon: "camera",
+			github: "https://github.com/nahidscript/video-captioning-ai"
+		}
+	},
+	{
+		id: "screen-recording-app",
+		data: {
+			title: "High-Performance Screen Recording Application Built with Rust and FFmpeg",
+			description: "Lightweight, high-performance screen recording application with minimal resource usage and multiple output formats.",
+			status: "Paused",
+			year: "2025",
+			icon: "video",
+			github: "https://github.com/nahidscript/rust-screen-recorder"
+		}
+	},
+	{
+		id: "vpn-infrastructure",
+		data: {
+			title: "Scalable Backend Infrastructure Powering a Commercial VPN Service with WireGuard Protocol",
+			description: "High-performance backend infrastructure for commercial VPN service with automated server provisioning and load balancing.",
+			status: "Completed",
+			year: "2023",
+			icon: "shield",
+			notion: "https://notion.so/nahidscript/vpn-infrastructure"
+		}
+	}
+];
+---
+
+<CenteredLayout title={`Things I Built - ${SITE_TITLE}`} description="Things I've built - from system tools to infrastructure projects">
+	<section class="py">
+		<p class="text-sm pb-4">
+			A collection of projects I've worked on, ranging from system utilities to backend infrastructure solutions.
+		</p>
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+			{
+				projects.map((project) => {
+					const getStatusColors = (status: string) => {
+						switch(status) {
+							case "Discontinued":
+								return "hover:bg-red-100 hover:text-red-800 dark:hover:bg-red-950/30 dark:hover:text-red-200";
+							case "Active":
+							case "Ongoing":
+								return "hover:bg-green-100 hover:text-green-800 dark:hover:bg-green-950/30 dark:hover:text-green-200";
+							case "Planned":
+								return "hover:bg-blue-100 hover:text-blue-800 dark:hover:bg-blue-950/30 dark:hover:text-blue-200";
+							default:
+								return "hover:bg-amber-100 hover:text-amber-800 dark:hover:bg-amber-950/30 dark:hover:text-amber-200";
+						}
+					};
+
+					const getIconColors = (icon: string) => {
+						switch(icon) {
+							case "dog":
+								return "text-amber-400/60";
+							case "camera":
+								return "text-purple-400/60";
+							case "video":
+								return "text-blue-400/60";
+							case "shield":
+								return "text-green-400/60";
+							default:
+								return "text-gray-400/50";
+						}
+					};
+					
+					return (
+					<div
+						class:list={[
+							"flex flex-col p-4 group rounded-lg cursor-default",
+							getStatusColors(project.data.status),
+							"transition-all duration-300"
+						]}
+					>
+						<div class="flex flex-col items-start text-left mb-4">
+							<div class="flex items-start justify-between w-full mb-3">
+								<div>
+									{project.data.icon === "dog" && <Dog client:load className={`w-8 h-8 ${getIconColors("dog")}`} />}
+									{project.data.icon === "camera" && <Camera client:load className={`w-8 h-8 ${getIconColors("camera")}`} />}
+									{project.data.icon === "video" && <Video client:load className={`w-8 h-8 ${getIconColors("video")}`} />}
+									{project.data.icon === "shield" && <Shield client:load className={`w-8 h-8 ${getIconColors("shield")}`} />}
+								</div>
+								<div class="flex gap-2">
+									{project.data.github && (
+										<button 
+											class="p-1.5 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+											onclick={`window.open('${project.data.github}', '_blank')`}
+											onpointerdown="event.stopPropagation()"
+											title="View on GitHub"
+										>
+											<Github client:load className="w-4 h-4 text-muted-foreground hover:text-foreground transition-colors" />
+										</button>
+									)}
+									{project.data.demo && (
+										<button 
+											class="p-1.5 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+											onclick={`window.open('${project.data.demo}', '_blank')`}
+											onpointerdown="event.stopPropagation()"
+											title="View demo"
+										>
+											<ExternalLink client:load className="w-4 h-4 text-muted-foreground hover:text-foreground transition-colors" />
+										</button>
+									)}
+									{project.data.notion && (
+										<button 
+											class="p-1.5 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+											onclick={`window.open('${project.data.notion}', '_blank')`}
+											onpointerdown="event.stopPropagation()"
+											title="View in Notion"
+										>
+											<FileText client:load className="w-4 h-4 text-muted-foreground hover:text-foreground transition-colors" />
+										</button>
+									)}
+								</div>
+							</div>
+							<div>
+								<span class="text-muted-foreground text-xs tracking-tight">
+									{project.data.year} • {project.data.status}
+								</span>
+								<h3 class="font-bold text-lg leading-tight mt-1">
+									{project.data.title}
+								</h3>
+							</div>
+						</div>
+						<div class="overflow-hidden max-h-0 group-hover:max-h-24 transition-all duration-300 ease-out">
+							<p class="text-sm text-muted-foreground mt-2 transform translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+								{project.data.description}
+							</p>
+						</div>
+					</div>
+					);
+				})
+			}
+		</div>
+	</section>
+</CenteredLayout>

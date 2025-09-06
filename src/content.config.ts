@@ -12,7 +12,7 @@ const commonSchema = z.object({
 });
 
 const posts = defineCollection({
-	loader: glob({ base: './src/content/', pattern: '**/*.{md,mdx}' }),
+	loader: glob({ base: './src/content/', pattern: 'posts/**/*.{md,mdx}' }),
 	schema: commonSchema.extend({
 		draft: z.boolean().optional(),
 	}),
