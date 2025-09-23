@@ -51,6 +51,23 @@ const Footer = () => {
             </a>
           </div>
         </div>
+        <div className="mt-4 flex flex-wrap items-center gap-2 text-[10px] text-neutral-content/70">
+          <span className="tracking-wide uppercase">Personal site</span>
+          <span aria-hidden="true">•</span>
+          <a
+            href="/privacy"
+            className="underline-offset-4 hover:text-primary hover:underline transition-colors"
+          >
+            Privacy
+          </a>
+          <span aria-hidden="true">/</span>
+          <a
+            href="/terms"
+            className="underline-offset-4 hover:text-primary hover:underline transition-colors"
+          >
+            Terms
+          </a>
+        </div>
       </div>
     </footer>
   );

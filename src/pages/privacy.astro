@@ -1,0 +1,55 @@
+---
+import CenteredLayout from "../layouts/CenteredLayout.astro";
+import Prose from "../components/Prose.astro";
+
+const lastUpdated = "September 24, 2025";
+---
+
+<CenteredLayout title="Privacy Policy" description="Privacy details for Nahid Script">
+	<Prose>
+		<h1>Privacy Policy</h1>
+		<p>
+			This is my personal website, published so I can share projects, notes, and experiments. I keep things simple on purpose and I do not run ads, analytics beacons, or invisible trackers.
+		</p>
+
+		<h2>Information I Collect</h2>
+		<p>
+			Visiting this site does not require you to submit any personal information. The only data that might be collected is the minimal technical information that any web server receives automatically (such as an IP address, browser type, and the page requested). I do not combine that information with any other data and I do not use it to identify you.
+		</p>
+
+		<h2>Cookies and Local Storage</h2>
+		<p>
+			By default, the site does not set cookies. If at some point I add optional features that need local storage (for example, a theme toggle that remembers your choice), I will keep it limited to that functionality.
+		</p>
+
+		<h2>How I Use Data</h2>
+		<p>
+			Any technical logs that are created are used solely to keep the site running reliably, to prevent abuse, and to diagnose problems when something breaks. They are retained only as long as needed for those purposes.
+		</p>
+
+		<h2>Third-Party Services</h2>
+		<p>
+			I host my code and sometimes embed content from platforms such as GitHub, YouTube, or other developer tools. When you interact with those embeds, their privacy policies apply. I do not sell or share data with advertisers or data brokers.
+		</p>
+
+		<h2>Links to Other Sites</h2>
+		<p>
+			I occasionally link to external resources. Following those links takes you to websites I do not control, and their own policies govern how they handle your data.
+		</p>
+
+		<h2>Your Choices</h2>
+		<p>
+			If you prefer not to share any technical metadata at all, consider using a privacy-friendly browser or blocker. If you contact me directly, I will only use your details to respond to you and I will delete the message once it is no longer needed.
+		</p>
+
+		<h2>Updates</h2>
+		<p>
+			I may update this page when I change how the site works. Major changes will be timestamped so you can see what changed and when. Last updated: {lastUpdated}.
+		</p>
+
+		<h2>Contact</h2>
+		<p>
+			Questions? Reach out at <a href="mailto:nahidscript@proton.me">nahidscript@proton.me</a>.
+		</p>
+	</Prose>
+</CenteredLayout>
