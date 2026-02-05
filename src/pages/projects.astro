@@ -1,41 +1,18 @@
 ---
 import CenteredLayout from "../layouts/CenteredLayout.astro";
 import { SITE_TITLE } from "../consts";
-import { Video, Shield, Dog, Camera, Github, ExternalLink, FileText } from "lucide-react";
+import { Video, Shield, Dog, Camera, Github, ExternalLink, FileText, Cpu } from "lucide-react";
 
 const projects = [
 	{
-		id: "dog-agility-software",
+		id: "ai-native-communication-os",
 		data: {
-			title: "A Comprehensive Dog Agility Software for Trial Secretaries, Judges, and Associations",
-			description: "Complete management system for dog agility trials with real-time scoring, participant management, and automated reporting features.",
+			title: "AI Native Communication OS",
+			description: "A specialized operating system layer for collaborative communication, featuring autonomous agent orchestration, ephemeral secret management, and AI-driven automation.",
 			status: "Active",
 			year: "2025",
-			icon: "dog",
-			github: "https://github.com/nahidscript/dog-agility-software",
-			demo: "https://agility-demo.nahidscript.com"
-		}
-	},
-	{
-		id: "video-captioning-tool",
-		data: {
-			title: "Automated Video Captioning Tool",
-			description: "AI-powered tool for automatic video transcription and subtitle generation with support for multiple languages and formats.",
-			status: "Ongoing",
-			year: "2025",
-			icon: "camera",
-			github: "https://github.com/nahidscript/video-captioning-ai"
-		}
-	},
-	{
-		id: "screen-recording-app",
-		data: {
-			title: "High-Performance Screen Recording Application Built with Rust and FFmpeg",
-			description: "Lightweight, high-performance screen recording application with minimal resource usage and multiple output formats.",
-			status: "Paused",
-			year: "2025",
-			icon: "video",
-			github: "https://github.com/nahidscript/rust-screen-recorder"
+			icon: "cpu",
+			github: "https://github.com/joynahid/wirestaq-site"
 		}
 	},
 	{
@@ -84,6 +61,8 @@ const projects = [
 								return "text-blue-400/60";
 							case "shield":
 								return "text-green-400/60";
+							case "cpu":
+								return "text-blue-500/60";
 							default:
 								return "text-gray-400/50";
 						}
@@ -104,6 +83,7 @@ const projects = [
 									{project.data.icon === "camera" && <Camera client:load className={`w-8 h-8 ${getIconColors("camera")}`} />}
 									{project.data.icon === "video" && <Video client:load className={`w-8 h-8 ${getIconColors("video")}`} />}
 									{project.data.icon === "shield" && <Shield client:load className={`w-8 h-8 ${getIconColors("shield")}`} />}
+									{project.data.icon === "cpu" && <Cpu client:load className={`w-8 h-8 ${getIconColors("cpu")}`} />}
 								</div>
 								<div class="flex gap-2">
 									{project.data.github && (
