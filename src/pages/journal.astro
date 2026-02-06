@@ -3,8 +3,15 @@ import CenteredLayout from "../layouts/CenteredLayout.astro";
 import { getCollection, render } from "astro:content";
 
 // Get all journal entries sorted by date
-const entries = (await getCollection("journal")).sort(
+const rawEntries = (await getCollection("journal")).sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const entries = await Promise.all(
+    rawEntries.map(async (entry) => {
+        const { Content } = await render(entry);
+        return { entry, Content };
+    })
 );
 
 const title = "Journal";
@@ -18,26 +25,23 @@ const description = "Daily logs, thoughts, and quick updates.";
 		</p>
 		<div class="space-y-8">
 			{
-				entries.map(async (entry) => {
-                    const { Content } = await render(entry);
-                    return (
-                        <div class="group">
-                            <span class="text-gray-400 text-xs tracking-tight block mb-1">
-                                {entry.data.pubDate.toLocaleDateString("en-us", {
-                                    year: "numeric",
-                                    month: "long",
-                                    day: "numeric",
-                                })}
-                            </span>
-                            <h2 class="font-bold text-lg mb-2 group-hover:text-amber-100 transition-colors">
-                                {entry.data.title}
-                            </h2>
-                            <div class="prose prose-sm prose-invert max-w-none text-gray-300">
-                                <Content />
-                            </div>
+				entries.map(({ entry, Content }) => (
+                    <div class="group">
+                        <span class="text-gray-400 text-xs tracking-tight block mb-1">
+                            {entry.data.pubDate.toLocaleDateString("en-us", {
+                                year: "numeric",
+                                month: "long",
+                                day: "numeric",
+                            })}
+                        </span>
+                        <h2 class="font-bold text-lg mb-2 group-hover:text-amber-100 transition-colors">
+                            {entry.data.title}
+                        </h2>
+                        <div class="prose prose-sm prose-invert max-w-none text-gray-300">
+                            <Content />
                         </div>
-                    )
-                })
+                    </div>
+                ))
 			}
 		</div>
 	</section>
