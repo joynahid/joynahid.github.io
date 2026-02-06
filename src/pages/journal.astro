@@ -1,0 +1,42 @@
+---
+import CenteredLayout from "../layouts/CenteredLayout.astro";
+import { getCollection } from "astro:content";
+
+// Get all journal entries sorted by date
+const entries = (await getCollection("journal")).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const title = "Journal";
+const description = "Daily logs, thoughts, and quick updates.";
+---
+
+<CenteredLayout title={title} description={description}>
+	<section class="py">
+		<h1 class="text-2xl font-bold mb-4">{title}</h1>
+		<p class="text-sm pb-4">
+			{description}
+		</p>
+		<div class="space-y-4">
+			{
+				entries.map((entry) => (
+					<div class="border-l-2 border-gray-700 pl-4 py-1">
+						<span class="text-gray-400 text-xs tracking-tight">
+							{entry.data.pubDate.toLocaleDateString("en-us", {
+								year: "numeric",
+								month: "long",
+								day: "numeric",
+							})}
+						</span>
+						<h2 class="font-bold text-lg">
+							{entry.data.title}
+						</h2>
+						<div class="text-sm text-gray-300 mt-1">
+							{entry.body}
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</section>
+</CenteredLayout>
