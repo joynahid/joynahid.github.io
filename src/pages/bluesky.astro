@@ -1,0 +1,44 @@
+---
+import CenteredLayout from "../layouts/CenteredLayout.astro";
+import { SITE_TITLE } from "../consts";
+import { ArrowUpRight } from "lucide-react";
+import feedData from "../data/bsky-feed.json";
+
+const posts = (feedData.feed ?? []).map(({ post }: any) => ({
+  uri: post.uri,
+  text: post.record.text,
+  date: new Date(post.indexedAt).toLocaleDateString("en-us", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  }),
+  url: `https://bsky.app/profile/${post.author.handle}/post/${post.uri.split("/").pop()}`,
+}));
+---
+
+<CenteredLayout title={`Bluesky - ${SITE_TITLE}`} description="My Bluesky feed">
+  <section class="py">
+    <p class="text-sm pb-4">
+      Thoughts, links, and things I find interesting.
+    </p>
+    <div class="space-y-1">
+      {posts.map((post) => (
+        <a
+          href={post.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group flex flex-col my-1 p-2 rounded-md border border-border/40 hover:border-border/70 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] hover:bg-secondary transition-colors duration-200"
+        >
+          <div class="flex items-start justify-between gap-2">
+            <span class="text-muted-foreground text-xs tracking-tight">{post.date}</span>
+            <ArrowUpRight className="w-3.5 h-3.5 text-muted-foreground/40 group-hover:text-muted-foreground shrink-0 transition-colors duration-200" />
+          </div>
+          <span class="text-sm mt-0.5 leading-relaxed whitespace-pre-wrap">{post.text}</span>
+        </a>
+      ))}
+      {posts.length === 0 && (
+        <p class="text-xs text-muted-foreground p-2">No posts yet.</p>
+      )}
+    </div>
+  </section>
+</CenteredLayout>

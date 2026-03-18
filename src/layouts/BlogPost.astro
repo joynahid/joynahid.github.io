@@ -5,14 +5,6 @@ import Prose from "../components/Prose.astro";
 import CenteredLayout from "./CenteredLayout.astro";
 import PostTitle from "../components/PostTitle";
 import { GITHUB_REPO_URL } from "../consts";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
-import { HomeIcon } from "lucide-react";
 
 
 type Props = CollectionEntry<"posts">["data"];
@@ -25,51 +17,19 @@ const buildGithubUrl = () => {
 ---
 
 <CenteredLayout title={title} description={description}>
-	<Breadcrumb>
-		<BreadcrumbList>
-			<BreadcrumbItem>
-				<BreadcrumbLink href="/"><HomeIcon client:load className="w-4 h-4" /></BreadcrumbLink>
-			</BreadcrumbItem>
-			<BreadcrumbSeparator />
-			<BreadcrumbItem>
-				<BreadcrumbLink class:list={["select-none"]}>Here</BreadcrumbLink>
-			</BreadcrumbItem>
-		</BreadcrumbList>
-	</Breadcrumb>
 	<article>
-		<div>
-			<div class="title">
-				<PostTitle
-					client:load
-					date={pubDate.toLocaleDateString("en-us", {
-						year: "numeric",
-						month: "short",
-						day: "numeric",
-					})}
-					title={title}
-				/>
-			</div>
-		</div>
+		<PostTitle
+			client:load
+			date={pubDate.toLocaleDateString("en-us", {
+				year: "numeric",
+				month: "short",
+				day: "numeric",
+			})}
+			title={title}
+		/>
 
 		<Prose>
 			<slot />
 		</Prose>
 	</article>
 </CenteredLayout>
-
-<style>
-	.hero-image {
-		width: 100%;
-		margin-bottom: 2rem;
-	}
-	.hero-image img {
-		display: block;
-		/* margin: 0 auto; */
-	}
-	.date {
-		margin-bottom: 0.5em;
-	}
-	.last-updated-on {
-		font-style: italic;
-	}
-</style>

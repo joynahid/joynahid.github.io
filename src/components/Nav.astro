@@ -1,17 +1,18 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 import ThemeToggle from "./ThemeToggle.astro";
-
-
-
+import { House, Cloud, User } from "lucide-react";
 ---
 
-
-<div class="select-none flex items-center">
-  <HeaderLink href="/">Home</HeaderLink>
-  <HeaderLink class:list={["ml-2"]} href="/projects">Things I Built</HeaderLink>
-  <HeaderLink class:list={["ml-2"]} href="/journal">Journal</HeaderLink>
-  <HeaderLink class:list={["ml-2"]} href="/about">About</HeaderLink>
-  <!-- <HeaderLink class:list={["ml-2"]} href="/blog">Blog</HeaderLink> -->
+<div class="select-none flex items-center gap-3">
+  <HeaderLink href="/" class="flex items-center gap-1.5">
+    <House className="w-3.5 h-3.5" />Home
+  </HeaderLink>
+  <HeaderLink href="/bluesky" class="flex items-center gap-1.5">
+    <Cloud className="w-3.5 h-3.5" />Bluesky
+  </HeaderLink>
+  <HeaderLink href="/about" class="flex items-center gap-1.5">
+    <User className="w-3.5 h-3.5" />About
+  </HeaderLink>
   <ThemeToggle />
 </div>

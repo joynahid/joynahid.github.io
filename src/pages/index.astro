@@ -2,9 +2,7 @@
 import CenteredLayout from "../layouts/CenteredLayout.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { getCollection } from "astro:content";
-// import HomeProfile from "../components/HomeProfile.astro";
 
-// Get all blog posts sorted by date
 const posts = (await getCollection("posts", ({ data }) => {
 	return data.draft !== true
 })).sort(
@@ -13,39 +11,32 @@ const posts = (await getCollection("posts", ({ data }) => {
 ---
 
 <CenteredLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-	<!-- Blog Posts Section -->
 	<section class="py">
 		<p class="text-sm pb-4">
 			I enjoy writing about tech - from high-level concepts down to the nitty-gritty details, using Python, Go, Rust, and whatever else catches my interest.
 		</p>
-		<div class="space-y-2">
+		<div class="space-y-1">
 			{
 				posts.map((post) => (
 					<a
-						class:list={[
-							"flex flex-col my-1 p-1 group",
-							"hover:backdrop-blur-md",
-							"hover:bg-gray-800 hover:p-2 hover:text-amber-100",
-							"rounded-md",
-							"transition-all duration-300"
-						]}
+						class="flex flex-col my-1 p-2 rounded-md border border-border/40 hover:border-border/70 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] hover:bg-secondary transition-colors duration-200"
 						href={`/posts/${post.id}/`}
 					>
-						<span class="text-gray-400 text-xs text-base-100 tracking-tight">
+						<span class="text-muted-foreground text-xs tracking-tight">
 							{post.data.pubDate.toLocaleDateString("en-us", {
 								year: "numeric",
 								month: "long",
 								day: "numeric",
 							})}
 						</span>
-						<span class="font-bold">
+						<span class="font-bold mt-0.5">
 							{post.data.title}
 						</span>
-						<div class="overflow-hidden max-h-0 group-hover:max-h-20 transition-all duration-300 ease-out">
-							<span class="text-sm text-gray-300 mt-1 block transform translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+						{post.data.description && (
+							<span class="text-xs text-muted-foreground mt-1">
 								{post.data.description}
 							</span>
-						</div>
+						)}
 					</a>
 				))
 			}
