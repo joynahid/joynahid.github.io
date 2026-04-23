@@ -12,9 +12,6 @@ const posts = (await getCollection("posts", ({ data }) => {
 
 <CenteredLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
 	<section class="py">
-		<p class="text-sm pb-4">
-			I enjoy writing about tech - from high-level concepts down to the nitty-gritty details, using Python, Go, Rust, and whatever else catches my interest.
-		</p>
 		<div class="space-y-1">
 			{
 				posts.map((post) => (

@@ -1,7 +1,7 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 import ThemeToggle from "./ThemeToggle.astro";
-import { House, Cloud, User } from "lucide-react";
+import { House, Cloud } from "lucide-react";
 ---
 
 <div class="select-none flex items-center gap-3">
@@ -10,9 +10,6 @@ import { House, Cloud, User } from "lucide-react";
   </HeaderLink>
   <HeaderLink href="/bluesky" class="flex items-center gap-1.5">
     <Cloud className="w-3.5 h-3.5" />Bluesky
-  </HeaderLink>
-  <HeaderLink href="/about" class="flex items-center gap-1.5">
-    <User className="w-3.5 h-3.5" />About
   </HeaderLink>
   <ThemeToggle />
 </div>

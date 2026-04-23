@@ -16,14 +16,6 @@ const Footer = () => {
         <div>
           <div className="flex gap-5 items-center">
             <a
-              href="https://youtube.com/@nullsenburg"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-primary transition-colors hover:font-bold"
-            >
-              YT
-            </a>
-            <a
               href="https://x.com/nahidscript"
               target="_blank"
               rel="noopener noreferrer"
