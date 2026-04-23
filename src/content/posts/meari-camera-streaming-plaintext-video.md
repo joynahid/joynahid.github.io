@@ -246,37 +246,6 @@ If you own one of these cameras, in order of effort:
 
 ---
 
-## Reporting It
-
-I'm not going to pretend filing complaints will fix this overnight, but creating a paper trail matters. The right channels, in roughly increasing order of impact:
-
-- **Where you bought it** - return it as defective with the security issue documented. Easiest path to a refund.
-- **The vendor** - `support@meari.com.cn`, `support@cloudedge360.com`. They probably won't reply, but you've documented it.
-- **Your country's data protection regulator** - in the EU that's GDPR; in the UK that's the ICO; in Bangladesh that's BTRC; in the US that's the FTC. Plaintext PII transmission is a clear violation almost everywhere.
-- **CERT/CC and CVE** - file at `https://www.kb.cert.org/vuls/report/` and `https://cveform.mitre.org/`. Get a CVE number. It becomes part of the permanent vulnerability record.
-- **Public disclosure** - Reddit, Hacker News, tech press, video walkthrough on YouTube. Embarrassment works faster than regulators in IoT security. Bonus: other people affected can find your post.
-
-Include the evidence: pcap file, extracted MP4, decoded headers, the device key in the URL. The technical details make the difference between "guy on the internet complaining" and "documented vulnerability with reproducible steps."
-
----
-
-## The Bigger Picture
-
-This isn't really about Meari. The Meari camera is one of probably hundreds of identical-internals cameras sold under different brand names - the AltoBeam + PPstrong stack is everywhere. **All of them likely have the same problem.** White-label IoT is a race to the bottom on price, and security is the first thing thrown overboard.
-
-The IoT industry has known about this problem for a decade. Mirai botnet was 2016. The advice - use HTTPS, don't hardcode keys, isolate IoT on a separate network - is well-understood. Manufacturers ignore it because there are no consequences. Cheap cameras keep selling, regulators move slowly, consumers don't have the technical chops to verify any of it.
-
-The fix isn't going to come from Meari. It comes from:
-
-1. **Buyers asking the question** before purchasing: does this camera work without the cloud? Does it use HTTPS? Where is the data going?
-2. **Reviewers actually testing this stuff** instead of just rating image quality.
-3. **Regulators with teeth** - fines big enough to make a 30-line code change cheaper than ignoring it.
-4. **Pressure from disclosures like this one** - every public writeup raises the cost of doing nothing.
-
-Until then: assume any cheap IoT camera is a surveillance device for whoever cares to listen, and act accordingly.
-
----
-
 ## Tools Used
 
 For anyone wanting to reproduce this on their own network and their own hardware:
